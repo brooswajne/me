@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Willem Garnier - CV</title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto+Slab:wght@200;700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/3aefba0120.js" crossorigin="anonymous"></script>
+
+	<style>
+	:root {
+		--colour-text: hsl(252, 4%, 15%);
+		--colour-accent:  hsl(153, 16%, 45%);
+		--colour-accent-dark: hsl(153, 16%, 35%);
+		--colour-accent-light: hsl(153, 16%, 75%);
+		--colour-accent-lighter: hsl(153, 16%, 85%);
+
+		font-family: 'Roboto Slab', serif;
+		font-size: 62.5%;
+		font-weight: 200;
+		color: var(--colour-text);
+
+		display: flex;
+		background: var(--colour-text);
+	}
+	body {
+		width: 100vw;
+		max-width: 115ch;
+		margin: 0 auto;
+		background: white;
+		box-shadow: black 0px 0px 20px 0px;
+		font-size: 1.2rem;
+	}
+	@media print {
+		:root { background: none; }
+		body {
+			background: none;
+			max-width: 100vw;
+			box-shadow: none;
+			/* Background colours */
+			-webkit-print-color-adjust: exact; /* Chrome */
+			color-adjust: exact; /* Firefox */
+		}
+		h1, h2, h3 { page-break-after: avoid }
+		article .summary li { break-inside: avoid }
+		@page {
+			size: A4 portrait;
+			margin: 1cm 0;
+		}
+		@page :first { margin-top: 0 }
+	}
+	h1, h2, h3 {
+		font-family: 'Fantasque Sans Mono', 'Space Mono', monospace, sans-serif;
+		margin: 0;
+	}
+	h1 {
+		color: var(--colour-accent-dark);
+		font-size: 4.2rem;
+	}
+	h2 { font-size: 2.2rem }
+	h3 { font-size: 1.7rem }
+	a {
+		color: var(--colour-accent);
+		font-style: normal;
+		text-decoration: inherit;
+		transition: color 0.25s;
+	}
+	a:hover {
+		color: var(--colour-accent-dark);
+	}
+	b, strong{ font-weight: bold }
+
+	header {
+		display: flex;
+		flex-flow: column;
+		background: var(--colour-accent-light);
+		padding: 2rem 4rem 1rem;
+	}
+	#titles {
+		grid-area: titles;
+		display: flex;
+		flex-flow: row;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#titles li:not(:first-of-type)::before {
+		content: '-';
+		color: var(--colour-accent-dark);
+		margin: 0 3px;
+	}
+
+	#bio {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		text-align: center;
+		padding: 1rem 4rem;
+		margin-top: 1rem;
+	}
+	#bio .bio-item {
+		display: flex;
+		flex-flow: column;
+		margin: auto;
+	}
+	#bio .bio-item .key {
+		font-weight: bold;
+		margin-bottom: 0.25rem;
+	}
+	address#home { font-style: normal }
+
+	#contact {
+		display: flex;
+		flex-flow: row;
+		padding: 1rem 4rem;
+	}
+	#contact::before, #contact::after {
+		content: '';
+		display: inline-block;
+
+		margin: auto 0;
+		background-color: var(--colour-accent);
+
+		flex-grow: 1;
+		height: 1px;
+	}
+	#contact::before { margin-right: 1rem }
+	#contact::after { margin-left: 1rem }
+	#contact a i { margin-right: 0.3rem }
+	#contact a:not(:first-of-type) { margin-left: 1rem }
+
+	section { padding: 1rem 4rem }
+	section h2 {
+		color: var(--colour-accent);
+		margin-bottom: 1.5rem;
+	}
+	article:not(:last-of-type) { margin-bottom: 0.5rem }
+
+	article .head {
+		display: flex;
+		flex-flow: row;
+	}
+	article .head .title {
+		margin-right: 1ch;
+		font-weight: bold;
+	}
+	article .head .company { font-weight: normal }
+	article .head .date { margin-left: auto }
+
+	article .summary {
+		line-height: 1.5em;
+		text-align: justify;
+		list-style: none;
+		padding: 0 1.5rem 0 0;
+		margin: 1rem 0 1.5rem 0;
+	}
+	article .summary li {
+		margin: 0 0 0.25rem 2rem;
+		position: relative;
+	}
+	article .summary b { color: var(--colour-accent) }
+	article .summary li::before {
+		position: absolute;
+		left: -1.5rem;
+		top: 0;
+		content: '>';
+		color: var(--colour-accent-light);
+	}
+	</style>
+</head>
+<body>
+
+<header>
+	<h1>Willem Garnier</h1>
+	<ul id="titles">
+		<li>Full Stack Web Development</li>
+		<li>Software Development</li>
+		<li>Mathematics</li>
+	</ul>
+</header>
+
+<section id="bio">
+	<div id="languages" class="bio-item">
+		<span class="key">Fluent Languages</span>
+		<span class="value">English / French</span>
+	</div>
+	<div id="nationality" class="bio-item">
+		<span class="key">Nationality</span>
+		<span class="value">French</span>
+	</div>
+	<div id="dob" class="bio-item">
+		<span class="key">Date of Birth</span>
+		<span class="value">1996-07-15</span>
+	</div>
+	<address id="home" class="bio-item">
+		<span class="key">Home Address</span>
+		<span id="street">21 Chatsworth Avenue</span>
+		<span id="city">Cambridge CB4 3LT</span>
+		<span id="country">United Kingdom</span>
+	</address>
+</section>
+
+<address id="contact">
+	<a id="mobile" href="tel:+447510938209"><i class="fas fa-phone-square-alt"></i>+44 (0)75109 38209</a>
+	<a id="email" href="mailto:willem.garnier@gmail.com"><i class="fas fa-envelope-square"></i>willem.garnier@gmail.com</a>
+</address>
+
+<main>
+	<section id="work">
+		<h2>Experience</h2>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Software Developer</span>
+				<span class="company">Luminance Ltd.</span>
+				<span class="date">2018 - present</span>
+			</h3>
+			<ul class="summary">
+				<li>Working on the full-stack development of a powerful modern web application, using a custom built MVC-style, component-based frontend framework, along with a <b>node.js</b> backend (<b>express</b>, <b>PostgreSQL</b>, <b>ElasticSearch</b>).</li>
+				<li>Focus on front-end application development, particularly responsible for a lot of the low-level development of the custom application framework logic itself.</li>
+				<li>Experience creating responsive, interactive visualisations efficiently supporting datasets of up to millions of documents. Used both <b>d3.js</b> for 2D charting, as well as <b>Three.js</b> + <b>native GLSL/WebGL</b> for 3D rendering.</li>
+				<li>Lead the development of a brand new Microsoft Office Add-in for the Luminance product, with responsibilities ranging from the low-level layout and framework architecture, to the UI/UX design.</li>
+				<li>As one of the eventual most senior and experienced developers on the application team, regularly helped with the teaching/training of new developers.</li>
+				<li>Experienced with <b>Jenkins</b> (CI) and <b>Git</b> (SCM), as well as significant general Unix command-line experience.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Student Supervisor</span>
+				<span class="company">The University of Warwick</span>
+				<span class="date">2017 - 2018</span>
+			</h3>
+			<ul class="summary">
+				<li>Organised, planned, and ran weekly classes for a group of first year Maths undergraduates, serving as a mentor while offering teaching and guidance for all areas of their degree.</li>
+				<li>Responsible for timely, accurate marking of multiple assessments weekly, providing detailed feedback throughout.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Club Coach & Captain</span>
+				<span class="company">Warwick Ultimate Frisbee Club</span>
+				<span class="date">2017 - 2018</span>
+			</h3>
+			<ul class="summary">
+				<li>Coached a club of over 100 students with abilities ranging from complete beginners to players more experienced than myself.</li>
+				<li>Headed a coaching team which was responsible for planning and running up to 5 weekly training sessions catering to this wide range of abilities, along with being responsible for captaining the competitive teams at fixtures and tournaments.</li>
+				<li>Worked extensively with the rest of the executive committee, co-ordinating and organising multiple tournaments, working with our own university and student's union, as well as with other clubs throughout the country.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Communications Officer</span>
+				<span class="company">Warwick Ultimate Frisbee Club</span>
+				<span class="date">2016 - 2017</span>
+			</h3>
+			<ul class="summary">
+				<li>Organised and ran multiple media campaigns aiming to recruit members through a variety of mediums (video, print, online advertising, and more).</li>
+				<li>Maintained the club's WordPress website, as well as other online presence.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Teaching Assistant</span>
+				<span class="company">Campion School, Leamington Spa</span>
+				<span class="date">2016</span>
+			</h3>
+			<ul class="summary">
+				<li>Assistant teacher in the school's Maths department, as part of a month-long placement.</li>
+				<li>Taught students of varying abilities between the ages of 11 and 18, including one-one-one support classes with A-level students, as well as struggling year 9 students.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">Freelance Web Developer</span>
+				<span class="company">OsmozaCare Poland</span>
+				<span class="date">2013</span>
+			</h3>
+			<ul class="summary">
+				<li>Developed a PHP-based webportal allowing the company to train its customers in the use of its products.</li>
+			</ul>
+		</article>
+	</section>
+
+	<section id="education">
+		<h2>Education</h2>
+
+		<article>
+			<h3 class="head">
+				<span class="title">MMath in Mathematics</span>
+				<span class="company">The University of Warwick, UK</span>
+				<span class="date">2014 - 2018</span>
+			</h3>
+			<ul class="summary">
+				<li>Four-year integrated <b>Bachelor's</b> + <b>Master's</b> degree course in Mathematics.</li>
+				<li>Graduated with <b>1st class honours</b>.</li>
+				<li>Thesis explored delay-colourings of bipartite graphs, attempting to prove an outstanding conjecture with direct implications on the design of fibre optic communication networks.</li>
+				<li>Took part in an out-of-department, coursework-based Machine Learning module which covered in detail many modern techniques, ranging from simple k-NN classification algorithms to recent Convolutional Neural Networks.</li>
+				<li>Covered a wide range of disciplines including linear and complex analysis, group theory and algebra, chaos theory, fractal geometry, knot theory, as well as more applied disciplines such as probability theory, mathematical modelling and computer-aided mathematics/physics.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">IB Diploma</span>
+				<span class="company">The British School of Warsaw, Poland</span>
+				<span class="date">2012 - 2014</span>
+			</h3>
+			<ul class="summary">
+				<li>Graduated with a total of <b>41 out of a possible 45 points</b>.</li>
+				<li>Subjects taken at a higher level: Mathematics, Physics and Computer Science. Achieved grades of 7, 7, and 6 respectively (graded out of a maximum of 7 each). Subjects taken at a standard level: Psychology, English, Spanish.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">
+				<span class="title">IGCSE</span>
+				<span class="company">The British School of Warsaw, Poland</span>
+				<span class="date">2010 - 2012</span>
+			</h3>
+			<ul class="summary">
+				<li>Subjects included Mathematics at an extended level (A*), Physics (A*), Chemistry (A*), and Biology (A*), among others.</li>
+			</ul>
+		</article>
+	</section>
+
+	<section id="skills">
+		<h2>Skills</h2>
+
+		<article>
+			<h3 class="head">Programming & Problem-Solving</h3>
+			<ul class="summary">
+				<li>Self-taught at an early age by taking an interest in game development and modding. First formal programming experience was in Java through the IB computer science course, for we were mostly expected to learn the programming aspects in our own time.</li>
+				<li><b>JavaScript/EcmaScript</b> - Very confident with most if not all aspects of the language, have been using this professionally and in side projects in a wide variety of contexts. Have experience building full applications from scratch using a javascript stack.</li>
+				<li><b>Python</b> - Quite confident with most aspects of the language, used for a lot of personal projects and extensively at university, in particular for my Machine Learning course, as well as several computational physics courses.</li>
+				<li><b>GLSL</b> - Used to build 3D visualisations which required custom-built shaders to stay performant on large datasets.</li>
+				<li><b>Rust</b> - Not used professionally, but have been very interested in the language and learning it in my own time.</li>
+				<li>I've also been interested in learning to use <b>Go</b> in my own time, and have used both <b>C</b> and <b>C++</b> a few times - in particular for a high-performance computational physics university course. My IB Computer Science course was <b>Java</b>-based, and I am very confident in both <b>HTML</b> & <b>CSS</b>.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">Leadership & Teamwork</h3>
+			<ul class="summary">
+				<li>Learned many valuable, transferable leadership and organisational skills as a team captain and coach for a large university club. Learned to effectively resolve conflicts between club members, and act as a leadership figure.</li>
+				<li>Responsible for leading several successful projects at Luminance, integrating members from across different teams.</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3 class="head">Communication & Organisation</h3>
+			<ul class="summary">
+				<li>Experience as a teaching assistant, as a student supervisor, and even as a coach has taught me to communicate information clearly, effectively, and appropriately for a variety of target audiences.</li>
+				<li>Learned valuable organisational skills in particular when balancing my degree and thesis with being a student supervisor responsible for marking multiple weekly assignments in a timely manner.</li>
+				<li>At Luminance, regularly co-ordinated with multiple team members, as well as other teams of developers working across multiple servers all being integrated into the app through our web backend.</li>
+			</ul>
+		</article>
+	</section>
+</main>
+
+</body>
+</html>
