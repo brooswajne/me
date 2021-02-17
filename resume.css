@@ -1,0 +1,152 @@
+:root {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 200;
+
+	display: flex;
+	background: var(--color-black);
+}
+body {
+	height: max-content;
+	max-width: 115ch;
+	margin: 0 auto;
+	background: white;
+	box-shadow: black 0px 0px 20px 0px;
+	font-size: 1.2rem;
+}
+@media print {
+	:root { background: none; }
+	body {
+		background: none;
+		max-width: 100%;
+		box-shadow: none;
+		/* Show element background colours */
+		-webkit-print-color-adjust: exact; /* Chrome */
+		color-adjust: exact; /* Firefox */
+	}
+	h1, h2, h3 { page-break-after: avoid }
+	article .summary li { break-inside: avoid }
+	nav { display: none !important }
+	@page {
+		size: A4 portrait;
+		margin: 1cm 0;
+	}
+	@page :first { margin-top: 0 }
+}
+
+h1, h2, h3 {
+	font-family: 'Fantasque Sans Mono', monospace;
+	margin: 0;
+}
+h1 { font-size: 4.2rem }
+h2 { font-size: 2.2rem }
+h3 { font-size: 1.7rem }
+a, button.link { font-weight: normal }
+b, strong { font-weight: 700 }
+
+header {
+	background: var(--color-primary-lighter);
+	padding: 2rem 4rem 1rem;
+}
+#titles li:not(:first-of-type)::before {
+	content: '-';
+	color: var(--color-primary);
+	margin: 0 0.3rem;
+}
+
+#bio {
+	justify-content: space-between;
+	text-align: center;
+	padding: 1rem 4rem;
+	margin-top: 1rem;
+}
+#bio .bio-item {
+	display: flex;
+	flex-flow: column;
+	margin: auto;
+}
+#bio .bio-item .key { margin-bottom: 0.25rem }
+
+#contact { padding: 1rem 4rem }
+#contact::before,
+#contact::after {
+	content: '';
+	display: inline-block;
+	margin: auto 0;
+	background-color: var(--color-primary);
+	flex-grow: 1;
+	height: 1px;
+}
+#contact::before { margin-right: 1rem }
+#contact::after { margin-left: 1rem }
+#contact a i { margin-right: 0.3rem }
+#contact a:not(:first-of-type) { margin-left: 1rem }
+
+section { padding: 1rem 4rem }
+section h2 { margin-bottom: 1.5rem }
+article:not(:last-of-type) { margin-bottom: 0.5rem }
+
+article .head {
+	display: flex;
+	flex-flow: row;
+	color: var(--color-text);
+}
+article .head .title { margin-right: 1ch }
+article .head .company { font-weight: normal }
+article .head .date { margin-left: auto }
+
+article .summary {
+	line-height: 1.5em;
+	text-align: justify;
+	list-style: none;
+	padding: 0 1.5rem 0 0;
+	margin: 1rem 0 1.5rem 0;
+}
+article .summary li {
+	margin: 0 0 0.25rem 2rem;
+	position: relative;
+}
+article .summary b { color: var(--color-primary) }
+article .summary li::before {
+	position: absolute;
+	left: -1.5rem;
+	top: 0;
+	content: '>';
+	color: var(--color-primary-light);
+}
+
+
+nav {
+	position: fixed;
+	top: 0.5rem;
+	right: 0;
+}
+nav a {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	margin-left: auto;
+	border-radius: 0.3rem 0 0 0.3rem;
+	transition: color var(--transition-duration-quick),
+		background var(--transition-duration-normal),
+		box-shadow var(--transition-duration-normal),
+		transform var(--transition-duration-normal);
+}
+nav a .icon {
+	font-size: 1.75rem;
+	transition: text-shadow var(--transition-duration-normal);
+}
+nav a .label {
+	margin-left: 0.5rem;
+	transition: opacity var(--transition-duration-normal);
+	font-family: 'Arima Madurai', sans-serif;
+	font-size: 1.2rem;
+	height: 1.1rem; /* Necessary to center vertically? */
+}
+nav a:hover {
+	background: var(--color-primary);
+	box-shadow: black 0.1rem 0.1rem 1rem -0.5rem;
+}
+nav a:not(:hover) { transform: translateX(calc(100% - 2rem - 1.25em)) }
+nav a:not(:hover) .icon { text-shadow: black 0.1rem 0.1rem 0.3rem }
+nav a:not(:hover) .label { opacity: 0 }
+nav a:not(:last-of-type) { margin-bottom: 1rem }

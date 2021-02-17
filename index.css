@@ -1,0 +1,48 @@
+html { scroll-behavior: smooth }
+nav, section { height: calc(100vh - 2rem) }
+section:last-of-type { height: 100vh }
+
+nav { text-align: center } 
+nav h1 {
+	font-size: 10vh;
+	margin: 0 0 2vh;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 5vh;
+	font-family: 'Fantasque Sans Mono', monospace;
+}
+nav li:not(:last-of-type) { margin-bottom: 1vh }
+nav a { position: relative }
+nav a::after {
+	content: '';
+	width: 100%;
+	height: 2px;
+
+	position: absolute;
+	bottom: -0.3rem;
+	left: 0;
+
+	background: var(--color-accent-coral);
+	transition: transform var(--transition-duration-quick);
+}
+nav a:not(:hover)::after { transform: scaleX(0) }
+
+#dark-mode-toggle {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+}
+#dark-mode { display: none }
+#dark-mode-toggle label {
+	cursor: pointer;
+	transition: color var(--transition-duration-quick);
+}
+#dark-mode-toggle:hover label { color: var(--color-accent-coral) }
+html:not([data-theme="dark"])
+#dark-mode-toggle .icon.light { display: none }
+html[data-theme="dark"]
+#dark-mode-toggle .icon.dark { display: none }
