@@ -34,7 +34,7 @@ nav a:not(:hover)::after { transform: scaleX(0) }
 	position: fixed;
 	top: 1rem;
 	right: 1rem;
-	font-size: 1.5rem;
+	font-size: max(1.5rem, 2vh);
 }
 #dark-mode { display: none }
 #dark-mode-toggle label {
