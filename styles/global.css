@@ -125,18 +125,18 @@ address { font-style: normal }
 		75%,
 		1
 	);
-	--color-primary-faded: hsla(
+
+	--color-primary-dark: hsla(
 		var(--color-primary-h),
 		var(--color-primary-s),
-		var(--color-primary-l),
-		0.5
+		40%,
+		1
 	);
-
-	--color-accent-coral-faded: hsla(
-		var(--color-accent-coral-h),
-		var(--color-accent-coral-s),
-		var(--color-accent-coral-l),
-		0.5
+	--color-primary-darker: hsla(
+		var(--color-primary-h),
+		var(--color-primary-s),
+		30%,
+		1
 	);
 }
 body { 

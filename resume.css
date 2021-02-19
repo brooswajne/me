@@ -1,14 +1,12 @@
 :root {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 200;
-
-	display: flex;
 	background: var(--color-black);
 }
 body {
 	height: max-content;
 	max-width: 115ch;
-	margin: 0 auto;
+	margin: 1rem auto;
 	background: white;
 	box-shadow: black 0px 0px 20px 0px;
 	font-size: 1.2rem;
@@ -119,10 +117,14 @@ nav {
 	position: fixed;
 	top: 0.5rem;
 	right: 0;
+
+	display: flex;
+	flex-flow: column;
 }
 nav a {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	padding: 0.5rem 1rem;
 	margin-left: auto;
 	border-radius: 0.3rem 0 0 0.3rem;
@@ -150,3 +152,42 @@ nav a:not(:hover) { transform: translateX(calc(100% - 2rem - 1.25em)) }
 nav a:not(:hover) .icon { text-shadow: black 0.1rem 0.1rem 0.3rem }
 nav a:not(:hover) .label { opacity: 0 }
 nav a:not(:last-of-type) { margin-bottom: 1rem }
+@media only screen and (max-width: 105ch) {
+	nav {
+		top: unset;
+		right: unset;
+		bottom: 0;
+		left: 0;
+
+		width: 100%;
+		flex-flow: row;
+		box-shadow: black -0.1rem -0.1rem 1rem -0.5rem;
+	}
+	nav a {
+		height: 5rem; /* 1.75rem (icon) + 1.2rem (label) + 0.5rem (margin) + 2 * 1rem (padding) */
+		margin: 0;
+		border-radius: 0;
+		width: 100%;
+		flex-flow: column;
+
+		background: var(--color-primary);
+		color: var(--color-white);
+		transition: background var(--transition-duration-quick);
+	}
+	nav a .label {
+		margin: 0.5rem 0 0;
+		transition: margin var(--transition-duration-normal),
+			opacity var(--transition-duration-normal);
+	}
+	nav a:hover {
+		background: var(--color-primary-dark);
+		box-shadow: none;
+	}
+	nav a:not(:hover) { transform: none }
+	nav a:not(:hover) .icon { text-shadow: none }
+	nav a:not(:hover) .label { margin-top: -1.1rem }
+	nav a:not(:last-of-type) { margin-bottom: 0 }
+
+	body { margin-bottom: 6rem }
+}
+
