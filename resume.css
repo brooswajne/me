@@ -119,7 +119,7 @@ article .summary li::before {
 
 nav {
 	position: fixed;
-	top: 0.5rem;
+	top: 1rem;
 	right: 0;
 
 	display: flex;
@@ -129,7 +129,7 @@ nav a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.5rem 1rem;
+	padding: 1rem 1rem;
 	margin-left: auto;
 	border-radius: 0.3rem 0 0 0.3rem;
 	transition: color var(--transition-duration-quick),
@@ -138,21 +138,21 @@ nav a {
 		transform var(--transition-duration-normal);
 }
 nav a .icon {
-	font-size: 1.75rem;
+	font-size: 2.25rem;
 	transition: text-shadow var(--transition-duration-normal);
 }
 nav a .label {
-	margin-left: 0.5rem;
+	margin-left: 1rem;
 	transition: opacity var(--transition-duration-normal);
 	font-family: 'Arima Madurai', sans-serif;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	height: 1.1rem; /* Necessary to center vertically? */
 }
 nav a:hover {
 	background: var(--color-primary);
 	box-shadow: black 0.1rem 0.1rem 1rem -0.5rem;
 }
-nav a:not(:hover) { transform: translateX(calc(100% - 2rem - 1.25em)) }
+nav a:not(:hover) { transform: translateX(calc(100% - 3.25rem - 1.25em)) }
 nav a:not(:hover) .icon { text-shadow: black 0.1rem 0.1rem 0.3rem }
 nav a:not(:hover) .label { opacity: 0 }
 nav a:not(:last-of-type) { margin-bottom: 1rem }
@@ -178,7 +178,9 @@ nav a:not(:last-of-type) { margin-bottom: 1rem }
 		color: var(--color-white);
 		transition: background var(--transition-duration-quick);
 	}
+	nav a .icon { font-size: 1.75rem }
 	nav a .label {
+		font-size: 1.25rem;
 		margin: 0.5rem 0 0;
 		transition: margin var(--transition-duration-normal),
 			opacity var(--transition-duration-normal);
