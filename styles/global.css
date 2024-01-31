@@ -46,98 +46,25 @@ address { font-style: normal }
 
 :root {
 	/* Constants */
-
 	--transition-duration-quick:  0.1s;
 	--transition-duration-normal: 0.25s;
 	--transition-duration-long:   0.5s;
-
 	/* Colors - Base */
-
-	--color-white: hsla(20, 100%, 95%);
-	--color-black: hsla(156, 9%, 19%);
-
+	--color-white: hsla(20 100% 95%);
+	--color-black: hsla(156 9% 19%);
 	--color-back: var(--color-white);
 	--color-text: var(--color-black);
-
 	/* Colors - Palette */
-
-	--color-primary-h: 155;
-	--color-primary-s: 16%;
-	--color-primary-l: 45%;
-	--color-primary: hsla(
-		var(--color-primary-h),
-		var(--color-primary-s),
-		var(--color-primary-l),
-		1
-	);
-
-	--color-secondary-h: 155;
-	--color-secondary-s: 100%;
-	--color-secondary-l: 77%;
-	--color-secondary: hsla(
-		var(--color-secondary-h),
-		var(--color-secondary-s),
-		var(--color-secondary-l),
-		1
-	);
-
-	--color-accent-coral-h: 358;
-	--color-accent-coral-s: 79%;
-	--color-accent-coral-l: 70%;
-	--color-accent-coral: hsla(
-		var(--color-accent-coral-h),
-		var(--color-accent-coral-s),
-		var(--color-accent-coral-l),
-		1
-	);
-
-	--color-accent-purple-h: 318;
-	--color-accent-purple-s: 69%;
-	--color-accent-purple-l: 33%;
-	--color-accent-purple: hsla(
-		var(--color-accent-purple-h),
-		var(--color-accent-purple-s),
-		var(--color-accent-purple-l),
-		1
-	);
-
-	--color-accent-dark-h: 296;
-	--color-accent-dark-s: 45%;
-	--color-accent-dark-l: 21%;
-	--color-accent-dark: hsla(
-		var(--color-accent-dark-h),
-		var(--color-accent-dark-s),
-		var(--color-accent-dark-l),
-		1
-	);
-
+	--color-primary: hsla(155 16% 45%);
+	--color-secondary: hsla(155 100% 77%);
+	--color-accent-coral: hsla(358 79% 70%);
+	--color-accent-purple: hsla(318 69% 33%);
+	--color-accent-dark: hsla(296 45% 21%);
 	/* Colors - Derivations */
-
-	--color-primary-light: hsla(
-		var(--color-primary-h),
-		var(--color-primary-s),
-		60%,
-		1
-	);
-	--color-primary-lighter: hsla(
-		var(--color-primary-h),
-		var(--color-primary-s),
-		75%,
-		1
-	);
-
-	--color-primary-dark: hsla(
-		var(--color-primary-h),
-		var(--color-primary-s),
-		40%,
-		1
-	);
-	--color-primary-darker: hsla(
-		var(--color-primary-h),
-		var(--color-primary-s),
-		30%,
-		1
-	);
+	--color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
+	--color-primary-lighter: color-mix(in srgb, var(--color-primary) 50%, white);
+	--color-primary-dark: color-mix(in srgb, var(--color-primary) 97%, black);
+	--color-primary-darker: color-mix(in srgb, var(--color-primary) 85%, black);
 }
 body { 
 	background: var(--color-back);
@@ -151,13 +78,8 @@ html[data-theme="dark"] {
 	--color-back: hsla(207, 100%, 8%);
 	--color-text: var(--color-white);
 
-	--color-primary-h: 155;
-	--color-primary-s: 100%;
-	--color-primary-l: 77%;
-
-	--color-secondary-h: 155;
-	--color-secondary-s: 16%;
-	--color-secondary-l: 45%;
+	--color-primary: hsla(155, 100%, 77%, 1);
+	--color-secondary: hsla(155, 16%, 45%, 1);
 }
 
 /* Utility Classes */
