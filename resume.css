@@ -27,6 +27,11 @@ body {
 	}
 	h1, h2, h3 { page-break-after: avoid }
 	article .summary li { break-inside: avoid }
+	article .summary a {
+		/* It's not a link when printing! */
+		color: inherit;
+		font-weight: 200;
+	}
 	nav { display: none !important }
 	@page {
 		size: A4 portrait;
