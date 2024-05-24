@@ -1,6 +1,21 @@
-html { scroll-behavior: smooth }
-nav, section { height: calc(100vh - 2rem) }
+/* Section sizing */
+
+html {
+	--section-peek-size: 2rem;
+	overflow: hidden;
+}
+body {
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	scroll-snap-type: y proximity;
+}
+nav, section {
+	height: calc(100vh - var(--section-peek-size));
+	scroll-snap-align: start;
+}
 section:last-of-type { height: 100vh }
+
+/* Main navigation splash screen */
 
 nav { text-align: center } 
 nav h1 {
@@ -29,6 +44,56 @@ nav a::after {
 	transition: transform var(--transition-duration-quick);
 }
 nav a:not(:hover)::after { transform: scaleX(0) }
+
+/* Details sections */
+
+section {
+	display: flex;
+	flex-direction: column;
+	> a {
+		display: block;
+		height: var(--section-peek-size);
+		background: var(--color-section);
+		transition: background var(--transition-duration-quick);
+		&:hover { background: color-mix(in srgb, var(--color-section) 90%, black) }
+	}
+	header, main { padding: 2rem 2rem }
+	header {
+		--header-font-size: 2.5rem;
+		font-size: var(--header-font-size);
+
+		padding-top: 2rem;
+		padding-bottom: 0rem;
+
+		box-shadow: 0px 10px 20px -10px black;
+		background: color-mix(in srgb, var(--color-section) 50%, black);
+		transition: background var(--transition-duration-long);
+
+		display: flex;
+		h1 {
+			line-height: var(--header-font-size);
+			padding: 0;
+			color: var(--color-back);
+
+			width: 26ch;
+			margin: 0 auto;
+		}
+	}
+	main { 
+		font-size: 2rem;
+		max-width: 70ch;
+		margin: 0 auto;
+		overflow-y: scroll;
+	}
+}
+html[data-theme="dark"]
+section header {
+	background: color-mix(in srgb, var(--color-section) 70%, white);
+}
+section#about { --color-section: var(--color-accent-purple) }
+section#projects { --color-section: var(--color-accent-coral) }
+
+/* Global dark mode button */
 
 #dark-mode-toggle {
 	position: fixed;
