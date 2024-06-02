@@ -7,7 +7,7 @@ html {
 body {
 	overflow-y: scroll;
 	scroll-behavior: smooth;
-	scroll-snap-type: y proximity;
+	scroll-snap-type: y mandatory;
 }
 nav, section {
 	height: calc(100vh - var(--section-peek-size));
