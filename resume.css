@@ -4,18 +4,20 @@
 
 	--section-padding-v: 1rem;
 	--section-padding-h: 4rem;
+	--page-width: 115ch;
 }
 body {
 	height: max-content;
 	background: var(--color-black);
-	padding: 1rem 0;
+	padding: 0 0 1rem 0;
+
+	font-size: 1.2rem;
 }
 #page {
-	max-width: 115ch;
+	max-width: var(--page-width);
 	margin: 0 auto;
 	background: white;
 	box-shadow: black 0px 0px 20px 0px;
-	font-size: 1.2rem;
 }
 @media print {
 	:root { background: none; }
@@ -39,7 +41,10 @@ body {
 		}
 	}
 
+	/* Web-only additions */
+	aside { display: none !important }
 	nav { display: none !important }
+
 	@page {
 		size: A4 portrait;
 		margin: 1cm 0;
@@ -139,6 +144,22 @@ section {
 	}
 }
 
+aside {
+	color: white;
+	background: var(--color-accent-coral);
+	width: 100%;
+	max-width: var(--page-width);
+	padding: 2rem var(--section-padding-h);
+	margin: 0 auto 1rem auto;
+
+	p { margin: 0 }
+	p:not(:first-of-type) { margin-top: 1rem }
+	#download-button-location::before {
+		font-weight: bold;
+		content: "at the right edge of the page";
+	}
+}
+
 nav {
 	position: fixed;
 	top: 1rem;
@@ -185,6 +206,10 @@ nav {
 }
 
 @media only screen and (max-width: 105ch) {
+	aside #download-button-location::before {
+		content: "at the bottom of your screen";
+	}
+
 	nav {
 		top: unset;
 		right: unset;
