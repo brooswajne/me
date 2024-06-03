@@ -7,11 +7,9 @@ html {
 body {
 	overflow-y: scroll;
 	scroll-behavior: smooth;
-	scroll-snap-type: y mandatory;
 }
 nav, section {
 	height: calc(100vh - var(--section-peek-size));
-	scroll-snap-align: start;
 }
 section:last-of-type { height: 100vh }
 
